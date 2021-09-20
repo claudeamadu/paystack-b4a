@@ -3,7 +3,7 @@
 
 
 
-## Paystack B4A Android ryLibra
+## Paystack B4A Android Library
 
 This is a library for easy integration of [Paystack](https://paystack.com) with your Android application with [B4A](https://www.b4x.com/b4a.html).
 Use this library in your B4A project.

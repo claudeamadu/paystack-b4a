@@ -4,5 +4,5 @@ Last updated September 20, 2021
 
 All notable changes to this project will be documented in this file.
 
-## Released v1,9 on September 20, 2021
+## Released v1.0 on September 20, 2021
 - Initial Release
