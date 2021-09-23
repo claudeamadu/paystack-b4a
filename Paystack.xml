@@ -2,13 +2,15 @@
 <root>
   <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
   <b4x_version>11.00</b4x_version>
+  <dependsOn>cookiemanager</dependsOn>
+  <dependsOn>ime</dependsOn>
   <dependsOn>javaobject</dependsOn>
   <dependsOn>json</dependsOn>
   <dependsOn>okhttp</dependsOn>
   <dependsOn>phone</dependsOn>
   <dependsOn>reflection</dependsOn>
+  <dependsOn>webviewextras2</dependsOn>
   <dependsOn>xui</dependsOn>
-  <dependsOn>ime</dependsOn>
   <dependsOn>okhttp-3.12.12</dependsOn>
   <dependsOn>okio-1.17.5</dependsOn>
   <dependsOn>stringutils</dependsOn>
@@ -17,21 +19,11 @@
     <shortname>Paystack</shortname>
     <owner>activity</owner>
     <permission>android.permission.INTERNET</permission>
-    <event>Initialize(InsObject As Object, ActModule As Activity)</event>
-    <event>InitializeTransaction(Email As String, Amount As Int,Reference As String,Currency As String)</event>
-    <event>VerifyTransaction(Reference As String)</event>
-    <event>CancelPayment</event>
+    <event>TransactionStatus(Reference As String,Status As String)</event>
     <method>
       <name>IsInitialized</name>
       <comment>Tests whether the object has been initialized.</comment>
       <returntype>boolean</returntype>
-    </method>
-    <method>
-      <name DesignerName="CancelPayment">_cancelpayment</name>
-      <comment>Cancels the payment
-&lt;code&gt;Pay.CancelPayment&lt;/code&gt;
-</comment>
-      <returntype>String</returntype>
     </method>
     <method>
       <name DesignerName="Class_Globals">_class_globals</name>
@@ -52,10 +44,11 @@
     <method>
       <name DesignerName="Initialize">_initialize</name>
       <comment>Initializes Paystack
-InsObject - Current Instance
-ActModule - Current Activity
+EventName - Event Name
+Module - Current Module
+Activity - Current Activity
 &lt;code&gt;
-Pay.Initialize(Me,Activity)
+Pay.Initialize("Pay",Me,Activity)
 &lt;/code&gt;
 </comment>
       <returntype>String</returntype>
@@ -64,11 +57,19 @@ Pay.Initialize(Me,Activity)
         <type>anywheresoftware.b4a.BA</type>
       </parameter>
       <parameter>
-        <name>InsObject</name>
+        <name>EventName</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Module</name>
         <type>Object</type>
       </parameter>
       <parameter>
-        <name>ActModule</name>
+        <name>Activity</name>
         <type>anywheresoftware.b4a.objects.ActivityWrapper</type>
       </parameter>
     </method>
@@ -95,19 +96,11 @@ Currency - Currency of transaction
         <type>String</type>
       </parameter>
       <parameter>
-        <name>Currency</name>
+        <name>Label</name>
         <type>String</type>
       </parameter>
-    </method>
-    <method>
-      <name DesignerName="VerifyTransaction">_verifytransaction</name>
-      <comment>Verify transaction
-Reference - Reference of transaction
-&lt;code&gt;Pay.VerifyTransaction("12345")&lt;/code&gt;
-</comment>
-      <returntype>String</returntype>
       <parameter>
-        <name>Reference</name>
+        <name>Currency</name>
         <type>String</type>
       </parameter>
     </method>
@@ -140,6 +133,14 @@ Reference - Reference of transaction
       <returntype>boolean</returntype>
     </method>
     <method>
+      <name DesignerName="AssetFromJar">_assetfromjar</name>
+      <returntype>boolean</returntype>
+      <parameter>
+        <name>FileName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
       <name DesignerName="Class_Globals">_class_globals</name>
       <returntype>String</returntype>
     </method>
@@ -164,6 +165,22 @@ Reference - Reference of transaction
       </parameter>
     </method>
     <method>
+      <name DesignerName="LoadBitmapSampleFromJar">_loadbitmapsamplefromjar</name>
+      <returntype>anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper</returntype>
+      <parameter>
+        <name>FileName</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Width</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Height</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
       <name DesignerName="LoadFileFileFromJar">_loadfilefilefromjar</name>
       <returntype>anywheresoftware.b4a.objects.streams.File.InputStreamWrapper</returntype>
       <parameter>
@@ -171,7 +188,15 @@ Reference - Reference of transaction
         <type>String</type>
       </parameter>
     </method>
+    <method>
+      <name DesignerName="LoadNinePatchDrawable">_loadninepatchdrawable</name>
+      <returntype>Object</returntype>
+      <parameter>
+        <name>FileName</name>
+        <type>String</type>
+      </parameter>
+    </method>
   </class>
-  <version>1</version>
+  <version>1.1</version>
   <author>Claude Obiri Amadu</author>
 </root>

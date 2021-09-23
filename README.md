@@ -21,8 +21,6 @@ Use this library in your B4A project.
 
 ## Requirements
 - Android SDKv16 (Android 4.1 "Jelly Bean") and above
-- [JavaObject](https://b4x.com/android/help/javaobject.html)
-- [JarFileLoader](https://www.b4x.com/android/forum/threads/jarfileloader-embed-files-to-libraries.75428/) Optional
 
 ## Installation & Usage
 
@@ -39,8 +37,8 @@ End Sub
 #### Initialize Paystack Library
 ```
 Sub Activity_Create(FirstTime As Boolean)
-	Activity.LoadLayout("Layout")
-	Pay.Initialize(Me,Activity)
+	Activity.LoadLayout("Layout")	
+	Pay.Initialize("Pay","pk_test_xxxxx",Me,Activity)
 End Sub
 ```
 #### Add to Manifest
@@ -49,10 +47,6 @@ AddApplicationText(
 <meta-data
     android:name="co.paystack.android.PublicKey"
     android:value="pk_test_xxx"/>
-<meta-data
-    android:name="co.paystack.android.SecretKey"
-    android:value="sk_test_xxx"/>
-)
 ```
 
 #### Perform a transaction
@@ -63,6 +57,7 @@ End Sub
 ```
 ## Demo
 Download/Clone [https://github.com/claudeamadu/paystack-b4a/tree/main/Demo](https://github.com/claudeamadu/paystack-b4a/tree/main/Demo)
+<br/><img src="./phone0.jpeg" width="20%"></img> <img src="./phone1.jpeg" width="20%"></img> <img src="./phone2.jpeg" width="20%"></img> <img src="./phone3.jpeg" width="20%"></img> 
 
 ## Security
 
