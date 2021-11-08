@@ -7,16 +7,16 @@ FileGroup2=Default Group
 FileGroup3=Default Group
 Group=Default Group
 Library1=cookiemanager
-Library10=webviewextras2
-Library11=xui
+Library10=xui
+Library11=shapedrawable
 Library2=core
 Library3=ime
 Library4=javaobject
-Library5=json
-Library6=okhttp
-Library7=okhttputils2
-Library8=phone
-Library9=reflection
+Library5=okhttp
+Library6=okhttputils2
+Library7=phone
+Library8=reflection
+Library9=webviewextras2
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~AddApplicationText(~\n~<meta-data~\n~    android:name="co.paystack.android.PublicKey"~\n~    android:value="pk_test_83d0bdbb2262880d8b9786136a0c9941959c498d"/>~\n~)
 Module1=JarFileLoader
 Module2=Paystack
@@ -29,7 +29,7 @@ Version=11
 #Region  Project Attributes 
 	#ApplicationLabel: Paystack Example
 	#VersionCode: 1
-	#VersionName: 1.1
+	#VersionName: 1.20
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
 	#SupportedOrientations: unspecified
 	#CanInstallToExternalStorage: False
@@ -37,7 +37,7 @@ Version=11
 	
 	#LibraryAuthor: Claude Obiri Amadu
 	#LibraryName:Paystack
-	#LibraryVersion:1.1
+	#LibraryVersion:1.20
 #End Region
 
 #Region  Activity Attributes 
@@ -58,9 +58,12 @@ End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	Activity.LoadLayout("Layout")
-	Dim Jo As JavaObject
-	Jo.InitializeContext
-	Pay.Initialize("Pay","pk_test_83d0bdbb2262880d8b9786136a0c9941959c498d",Me,Activity)
+	Pay.Initialize("Pay","pk_test_83d0bdbb2262880d8b9786136a0c9941959c498d",Me,Activity,True)
+End Sub
+
+Private Sub Pay_TransactionResponse(Reference As String,Response As String)
+	Log(Reference)
+	Log(Response)
 End Sub
 
 Private Sub Pay_TransactionStatus(Reference As String,Status As String)

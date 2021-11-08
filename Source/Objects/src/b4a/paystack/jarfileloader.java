@@ -25,8 +25,6 @@ public class jarfileloader extends B4AClass.ImplB4AClass implements BA.SubDelega
 
  public anywheresoftware.b4a.keywords.Common __c = null;
 public boolean _fromassets = false;
-public b4a.paystack.main _main = null;
-public b4a.paystack.starter _starter = null;
 public b4a.paystack.httputils2service _httputils2service = null;
 public boolean  _assetfromjar(String _filename) throws Exception{
 anywheresoftware.b4a.objects.streams.File.OutputStreamWrapper _out = null;
@@ -50,7 +48,7 @@ if (true) return __c.True;
  } 
        catch (Exception e11) {
 			ba.setLastException(e11); //BA.debugLineNum = 50;BA.debugLine="Log(\"Failed to copy file to Assets: \" & FileName";
-__c.LogImpl("11769483","Failed to copy file to Assets: "+_filename,0);
+__c.LogImpl("21769483","Failed to copy file to Assets: "+_filename,0);
  //BA.debugLineNum = 51;BA.debugLine="Return False";
 if (true) return __c.False;
  };
@@ -127,7 +125,7 @@ _in = (anywheresoftware.b4a.objects.streams.File.InputStreamWrapper) anywheresof
  //BA.debugLineNum = 16;BA.debugLine="If In.IsInitialized = False Then";
 if (_in.IsInitialized()==__c.False) { 
  //BA.debugLineNum = 17;BA.debugLine="LogColor(\"Cannot find file: \" & FileName, Colors";
-__c.LogImpl("11572871","Cannot find file: "+_filename,__c.Colors.Red);
+__c.LogImpl("21572871","Cannot find file: "+_filename,__c.Colors.Red);
  };
  //BA.debugLineNum = 19;BA.debugLine="Return In";
 if (true) return _in;

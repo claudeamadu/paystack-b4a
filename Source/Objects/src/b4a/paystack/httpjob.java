@@ -36,8 +36,6 @@ public anywheresoftware.b4h.okhttp.OkHttpClientWrapper.OkHttpResponse _response 
 public Object _tag = null;
 public String _invalidurl = "";
 public String _defaultscheme = "";
-public b4a.paystack.main _main = null;
-public b4a.paystack.starter _starter = null;
 public b4a.paystack.httputils2service _httputils2service = null;
 public static class _multipartfiledata{
 public boolean IsInitialized;

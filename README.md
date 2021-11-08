@@ -38,7 +38,7 @@ End Sub
 ```
 Sub Activity_Create(FirstTime As Boolean)
 	Activity.LoadLayout("Layout")	
-	Pay.Initialize("Pay","pk_test_xxxxx",Me,Activity)
+	Pay.Initialize("Pay","pk_test_xxxxx",Me,Activity,False)
 End Sub
 ```
 #### Add to Manifest
@@ -47,6 +47,7 @@ AddApplicationText(
 <meta-data
     android:name="co.paystack.android.PublicKey"
     android:value="pk_test_xxx"/>
+)
 ```
 
 #### Perform a transaction
@@ -57,7 +58,7 @@ End Sub
 ```
 ## Demo
 Download/Clone [https://github.com/claudeamadu/paystack-b4a/tree/main/Demo](https://github.com/claudeamadu/paystack-b4a/tree/main/Demo)
-<br/><img src="./phone0.jpeg" width="20%"></img> <img src="./phone1.jpeg" width="20%"></img> <img src="./phone2.jpeg" width="20%"></img> <img src="./phone3.jpeg" width="20%"></img> 
+<br/><img src="./phone0.jpeg" width="20%"></img> <img src="./phone1.jpeg" width="20%"></img> <img src="./phone2.jpeg" width="20%"></img> <img src="./phone3.jpeg" width="20%"> <img src="./phone4.jpg" width="20%"></img> 
 
 ## Security
 
