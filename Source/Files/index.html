@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<title>Paystack</title>
+	<script>
+		function setCookie(cname, cvalue, exdays) {
+		  const d = new Date();
+		  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		  let expires = "expires="+ d.toUTCString();
+		  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+		setCookie('SameSite', 'Secure', 1);
+	</script>
+</head>
+<body>
+	<script>
+		function Pay(key,email,amount,ref,label,currency){
+			let handler = PaystackPop.setup({
+				key: key,
+				email: email,
+				amount: amount * 100,
+				ref: ref+Math.floor((Math.random() * 1000000000) + 1),
+				label: label,
+				currency: currency,
+				onClose: function(){
+					B4A.CallSub("Message",true,"Paystack","Payment Cancelled","cancelled");
+				},
+				callback: function(response){	
+					if(response.status == 'success'){
+						B4A.CallSub("Message",true,"Paystack","Payment of "+currency+amount+" Successul","success");
+					}else{
+						B4A.CallSub("Message",true,"Paystack","Error: "+response.status,"error");
+					}
+				}
+			});
+			handler.openIframe();
+		}
+	</script>
+	<script type="text/javascript" src="https://js.paystack.co/v1/inline.js"></script>
+</script>
+</body>
+</html>
